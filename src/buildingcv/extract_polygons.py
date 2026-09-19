@@ -181,7 +181,7 @@ class PolygonExtractor:
     def __init__(self, run_dir: Path, ckpt: str = "best.safetensors", device: str = "auto") -> None:
         cfg_path = run_dir / "config.yaml"
         ckpt_path = run_dir / ckpt
-        with cfg_path.open() as f:
+        with cfg_path.open(encoding="utf-8") as f:
             self.cfg = yaml.safe_load(f)
 
         self.device = _resolve_device(device)
